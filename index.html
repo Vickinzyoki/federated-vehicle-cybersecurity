@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle CAN Bus Attack Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vehicle CAN Bus Attack Detection</h1>
+            <div class="controls">
+                <button id="start-button" disabled>Start Training</button>
+                <div class="server-status">
+                    FL Server: <span id="status-indicator">Checking...</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="dashboard-grid">
+            <div class="card wide">
+                <h2>Training Progress</h2>
+                <div id="training-progress"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Connected Vehicles</h2>
+                <div id="active-clients">
+                    <div class="client-grid"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Attack Detection Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="label">Accuracy</span>
+                        <span class="value" id="accuracy">-</span>
+                        <div class="trend" id="accuracy-trend"></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Precision</span>
+                        <span class="value" id="precision">-</span>
+                        <div class="trend" id="precision-trend"></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Recall</span>
+                        <span class="value" id="recall">-</span>
+                        <div class="trend" id="recall-trend"></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">F1 Score</span>
+                        <span class="value" id="f1-score">-</span>
+                        <div class="trend" id="f1-trend"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card wide">
+                <h2>Attack Distribution</h2>
+                <div id="attack-distribution"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Latest Detections</h2>
+                <div class="detection-list" id="detection-list">
+                    <div class="empty-state">Waiting for detections...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/main.js"></script>
+</body>
+</html>
